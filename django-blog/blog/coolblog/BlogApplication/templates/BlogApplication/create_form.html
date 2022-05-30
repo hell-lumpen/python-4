@@ -1,0 +1,15 @@
+{% extends 'BlogApplication/base.html' %}
+
+{% block title %}
+    Добавление обзора
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.title }} <br>
+        {{ form.review_text }} <br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

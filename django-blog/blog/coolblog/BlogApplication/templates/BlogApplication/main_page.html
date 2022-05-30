@@ -1,0 +1,34 @@
+{% extends "BlogApplication/base.html" %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'reviews' %}"> <h2>Обзоры</h2></a>
+    {% if reviews %}
+        {% for element in reviews %}
+            <div>
+                <a href="reviews/{{ element.pk }}/"> <h2>{{ element.title }}</h2></a>
+                <p>{{ element.review_text|linebreaks|truncatewords:30 }}</p>
+                <p>{{ element.date }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Еще нет обзоров</p>
+    {% endif %}
+
+    <br>
+
+    <a href="{% url 'digests' %}"> <h2>Дайджесты</h2></a>
+    {% if digests %}
+        {% for element in digests %}
+            <div>
+                <a href="digests/{{ element.pk }}/"> <h2>{{ element.title }}</h2></a>
+                <p>{{ element.digest_text|linebreaks|truncatewords:30 }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Еще нет дайджестов</p>
+    {% endif %}
+{% endblock %}

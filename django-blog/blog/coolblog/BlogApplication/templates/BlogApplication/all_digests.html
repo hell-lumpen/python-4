@@ -1,0 +1,15 @@
+{% extends "BlogApplication/base.html" %}
+
+{% block title %}
+    Дайджесты
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'digests' %}"> <h2>Дайджесты</h2></a>
+    {% for element in digests %}
+        <div>
+            <a href="{{ element.pk }}/"> <h2>{{ element.title }}</h2></a>
+            <p>{{ element.digest_text|linebreaks|truncatewords:50 }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

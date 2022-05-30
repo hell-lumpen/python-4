@@ -1,0 +1,19 @@
+{% extends 'BlogApplication/base.html' %}
+
+{% block title %}
+    Редактирование обзора
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>
+            <input type="text" name="title" class='form-control' value="{{ review.title }}">
+        </label><br>
+        <label>
+            <textarea  name="review_text" class='form-control'>{{ review.review_text }}</textarea>
+        </label><br>
+        <button type="submit" class="btn btn-success">Изменить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

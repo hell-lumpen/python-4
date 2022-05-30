@@ -1,0 +1,8 @@
+{% extends "BlogApplication/base.html" %}
+
+{% block content %}
+    <h3>{{ review.title }}</h3>
+    <p>{{ review.review_text }}</p>
+    <p>{{ review.date }}</p>
+    <a href="/edit_post/{{ review.pk }}/"> Редактировать </a>
+{% endblock %}

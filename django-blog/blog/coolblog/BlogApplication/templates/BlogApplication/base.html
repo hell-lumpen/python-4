@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en,ru">
+
+{% load static %}
+
+<head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    <title> {% block title %} {% endblock %} </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
+</head>
+
+<body>
+    <nav>
+      <a href="{% url 'home' %}">Главная </a>
+      <a href="{% url 'about' %}"> О сайте </a>
+      <a href="{% url 'author' %}"> Автор</a>
+      <a href="{% url 'new_post' %}"> Создать новый обзор </a>
+      <a href="/admin/"> Администрирование</a>
+    </nav>
+
+    {% block content %} {% endblock %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "BlogApplication/base.html" %}
+
+{% block title %}
+    Обзоры
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'digests' %}"> <h2>Обзоры</h2></a>
+    {% for element in reviews %}
+        <div>
+            <a href="{{ element.pk }}/"> <h2>{{ element.title }}</h2></a>
+            <p>{{ element.review_text|linebreaks|truncatewords:50 }}</p>
+            <p>{{ element.date }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
